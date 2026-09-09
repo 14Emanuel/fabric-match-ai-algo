@@ -1,0 +1,8 @@
+{
+  "name": "FabricMatch AI",
+  "description": "Garment and fabric preference matching engine that eliminates online shopping detective work by scoring textile specs, opacity, lining, and breathability against personal shopper profiles.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
