@@ -8,12 +8,12 @@
 ## 🌟 Overview
 
 Online fashion shopping is plagued by high return rates because critical garment details are routinely obscured or omitted by fast-fashion retailers:
-- **Missing Rear & Lining Views**: Photos rarely show the back of the dress or whether the garment is actually lined.
+- **Missing Rear & Lining Views**: Product photos rarely show the back of the dress or whether the garment is actually lined.
 - **Sheerness / Opacity Uncertainty**: Shoppers cannot tell if fabric will be completely sheer in natural sunlight without wearing an extra slip.
-- **Unreliable Fabric Compositions**: Blends with high synthetic ratios cause excessive sweating, static cling, or sensory irritation.
-- **Mobility & Stride Constraints**: Tight pencil or unyielding cuts restrict walking and sitting.
+- **Unreliable Fabric Compositions**: Blends with high synthetic ratios cause excessive sweating, static cling, or sensory eczema flare-ups.
+- **Mobility & Stride Constraints**: Tight pencil or unyielding cuts restrict walking, sitting, or all-day commuting.
 
-**FabricMatch AI** acts as an algorithmic personal shopper that computes an instant match score (0–100%) and answers the 5 essential garment questions before a customer checks out:
+**FabricMatch AI** acts as an algorithmic personal shopper that computes an instant match score (20% – 99%+) and answers the 5 essential garment questions before a customer checks out:
 1. **Daylight Opacity**: Is the garment sheer under outdoor sunlight?
 2. **Lining & Coverage**: Is it fully lined, bodice-only, or completely unlined?
 3. **Fiber & Breathability**: Natural vs. synthetic ratios, fabric weight in GSM, and thermal regulation.
@@ -24,16 +24,30 @@ Online fashion shopping is plagued by high return rates because critical garment
 
 ## 🚀 Key Features
 
-- **⚡ 3-Second Match Fit Simulation**: Computes personalized compatibility scores in milliseconds across multiple distinct shopper profiles (e.g., Natural Fibers Purist, Modest & Opaque Dresser, High-Mobility Commuter).
-- **☀️ Daylight Sheerness Simulator**: Interactive visual slider testing fabric light transmittance from indoor ambient lighting to direct midday sun.
+- **⚡ 3-Second Match Fit Simulation**: Computes personalized compatibility scores across a realistic, continuous **20% to 99%+ spectrum** for all shopper profiles and garment archetypes.
+- **☀️ Daylight Sheerness Simulator**: Interactive visual slider testing fabric light transmittance from indoor ambient lighting to direct midday outdoor sun.
 - **📸 360° Multi-Angle Textile Inspector**: Verified photography showcasing the exact same garment from front silhouette, rear closure/backline, and close-up fabric weave.
 - **🔬 Granular Textile Spec Engine**:
-  - Fiber composition breakdown (Cotton, Linen, Silk, Viscose, Polyester, Spandex, etc.)
+  - Fiber composition breakdown (Cotton, Linen, Silk, Viscose, Modal, Polyamide, Polyester, Elastane)
   - Fabric weight classification (Lightweight <120 GSM, Midweight 120–220 GSM, Heavyweight >220 GSM)
-  - Weave taxonomy (Poplin, Batiste, Jacquard, Chiffon, Linen Slub, etc.)
-  - Stretch level (None, Mechanical, 2-Way, 4-Way)
+  - Weave taxonomy (Poplin, Batiste, Jacquard, Chiffon, Double Ponte, Voile Gauze, Circular Knit)
+  - Stretch level (None, Mechanical, Medium, High 4-Way)
   - Care requirements & wrinkle resistance ratings
 - **🔍 Custom Garment URL & Text Scanner**: Paste any product page URL or fabric description to extract textile specs on the fly.
+
+---
+
+## 📊 Continuous Match-Fit Spectrum (20% – 99%+)
+
+The engine implements a multi-tier weighted evaluation with hard-constraint gating to reflect real-world wardrobe satisfaction:
+
+| Match Range | Verdict Classification | Transparency Status | Example Garment & Persona Case |
+| :--- | :--- | :--- | :--- |
+| **90% – 99%+** | **Perfect Match** | ✨ Verified Transparent & Ideal Fit | 100% Organic Cotton Poplin Midi for Maya (Sensitive Skin) & Ponte Sheath for Chloe (Commuter) |
+| **75% – 89%** | **Good Fit** | 👍 Strong Compatibility | 100% Raw European Linen Maxi (High breathability, minor opacity trade-off in direct sun) |
+| **50% – 74%** | **Borderline** | ⚠️ Trade-offs Present | Heavy Ponte Sheath for Maya (Breathability/synthetic compromise) or Rib Knit for Sarah |
+| **35% – 49%** | **Not Recommended** | ❌ Poor Compatibility | Unlined Charmeuse Silk for Sarah (Opacity/sheerness gap) or Raw Linen without lining |
+| **20% – 34%** | **Incompatible** | ⛔ Hard Constraint Conflict | 100% Polyester Chiffon / Open Voile Gauze for Elena (Allergy trigger) & dry-clean-only garments for commuter profiles |
 
 ---
 
@@ -70,10 +84,10 @@ Online fashion shopping is plagued by high return rates because critical garment
     │   ├── FabricInspectorModal.tsx  # Deep fabric inspection & daylight test modal
     │   └── AlgorithmExplainer.tsx    # Transparent explanation of scoring logic
     ├── data/
-    │   ├── sampleGarments.ts         # Verified garment catalog with multi-angle photography
-    │   └── samplePersonas.ts         # Shopper preference profiles
+    │   ├── sampleGarments.ts         # Verified garment catalog with multi-angle photography & edge cases
+    │   └── samplePersonas.ts         # Shopper preference profiles & allergy edge cases
     └── utils/
-        └── matchingEngine.ts         # Scoring algorithm & compatibility evaluator
+        └── matchingEngine.ts         # Scoring algorithm with continuous 20%-99% calibration
 ```
 
 ---
@@ -88,8 +102,8 @@ Online fashion shopping is plagued by high return rates because critical garment
 
 1. **Clone the repository:**
    ```bash
-   git clone <your-repository-url>
-   cd fabricmatch-ai
+   git clone https://github.com/14Emanuel/fabric-match-ai-algo.git
+   cd fabric-match-ai-algo
    ```
 
 2. **Install dependencies:**
