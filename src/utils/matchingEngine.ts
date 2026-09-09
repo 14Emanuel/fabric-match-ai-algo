@@ -204,9 +204,16 @@ export function evaluateGarmentMatch(
 
   let finalScore = totalWeight > 0 ? Math.round(weightedSum / totalWeight) : 70;
 
-  // Apply hard penalty deduction
+  // Apply hard penalty deduction while maintaining a continuous spectrum (20% - 99%)
   if (hardViolations.length > 0) {
-    finalScore = Math.min(finalScore, Math.max(12, 45 - (hardViolations.length - 1) * 15));
+    // Scales dynamically with violation count and weighted score
+    const penaltyFactor = hardViolations.length >= 2 ? 0.38 : 0.52;
+    finalScore = Math.max(20, Math.min(finalScore, Math.round(weightedSum / totalWeight * penaltyFactor)));
+  }
+
+  // Cap at 99% for maximum realistic variance (or 100% for absolute pristine match)
+  if (finalScore >= 98 && (garment.fabric.stretchPercent === 0 || garment.fabric.opacityScore < 10)) {
+    finalScore = 96;
   }
 
   // 4. Grade and Verdict assignment
